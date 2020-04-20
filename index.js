@@ -18747,9 +18747,17 @@ let result = fifaData.find((match) => {
 // console.log(result["Home Team Goals"]);
 
 // (d) Away Team goals for 2014 world cup final
-console.log(result["Away Team Goals"]);
+// console.log(result["Away Team Goals"]);
 
 // (e) Winner of 2014 world cup final */
+
+if (result["Home Team Goals"] > result["Away Team Goals"]) {
+  console.log(result["Home Team Name"]);
+} else if (result["Home Team Goals"] < result["Away Team Goals"]) {
+  console.log(result["Away Team Name"]);
+} else {
+  console.log(`${result["Home Team Name"]} and ${result["Away Team Name"]} - Draw!`);
+}
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
