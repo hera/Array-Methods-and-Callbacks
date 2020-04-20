@@ -18744,9 +18744,11 @@ let result = fifaData.find((match) => {
 // console.log(result["Away Team Name"]);
 
 // (c) Home Team goals for 2014 world cup final
-console.log(result["Home Team Goals"]);
+// console.log(result["Home Team Goals"]);
 
 // (d) Away Team goals for 2014 world cup final
+console.log(result["Away Team Goals"]);
+
 // (e) Winner of 2014 world cup final */
 
 
