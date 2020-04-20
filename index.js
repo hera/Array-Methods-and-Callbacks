@@ -18737,10 +18737,12 @@ let result = fifaData.find((match) => {
     return match["Stage"] === "Final" && match["Year"] === 2014;
 });
 
-console.log(result["Home Team Name"]);
+// console.log(result["Home Team Name"]);
 
 
 // (b) Away Team name for 2014 world cup final
+console.log(result["Away Team Name"]);
+
 // (c) Home Team goals for 2014 world cup final
 // (d) Away Team goals for 2014 world cup final
 // (e) Winner of 2014 world cup final */
