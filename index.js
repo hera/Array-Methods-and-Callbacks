@@ -18766,8 +18766,20 @@ if (result["Home Team Goals"] > result["Away Team Goals"]) {
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 // version 1
+
+/*
 let finals = fifaData.filter((item) => item["Stage"] == "Final");
 console.log(finals);
+*/
+
+
+// ver 2
+
+function getFinals(data) {
+  return data.filter((item) => item["Stage"] == "Final");
+}
+
+console.log(getFinals(fifaData));
 
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
