@@ -18733,7 +18733,11 @@ const fifaData = [
 // (a) Home Team name for 2014 world cup final
 
 
+let result = fifaData.find((match) => {
+    return match["Stage"] === "Final" && match["Year"] === 2014;
+});
 
+console.log(result);
 
 
 // (b) Away Team name for 2014 world cup final
