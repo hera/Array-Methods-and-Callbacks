@@ -18813,7 +18813,7 @@ Parameters:
 function getWinnersByYear(data, cbWinners, cbYears) {
   const finals = getFinals(data);
   const years = cbYears(getFinals);
-  const countries = getWinners(finals);
+  const countries = cbWinners(getFinals);
 
   years.forEach((y, index) => {
     console.log(`In ${y}, ${countries[index]} won the world cup!`);
