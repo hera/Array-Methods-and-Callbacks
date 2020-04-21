@@ -18772,15 +18772,7 @@ function getFinals(data) {
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(data) {
-
-  const years = [];
-  
-  // Push all years to 'years' without duplicates
-  data.forEach((item) => {
-    if (!years.includes(item["Year"])) years.push(item["Year"])
-  });
-
-  return years;
+  return data.map((item) => item["Year"])
 };
 
 console.log(getYears(fifaData));
