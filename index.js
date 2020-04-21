@@ -18849,18 +18849,43 @@ function getCountryWins(data, initials) {
   return wonHome + wonAway;
 };
 
-console.log(getCountryWins(fifaData, "FRG"));
+// console.log(getCountryWins(fifaData, "FRG"));
 
 
 /* Task 8: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(data) {
+  const finals = getFinals(data);
+  const stats = {};
 
-    /* code here */
+  // teams played at home
+  finals.forEach((item) => {
+    if (stats.hasOwnProperty(item["Home Team Name"])) {
+      stats[item["Home Team Name"]] += item["Home Team Goals"];  // If the team has already played, increase the total score
+    } else {
+      stats[item["Home Team Name"]] = item["Home Team Goals"];   // otherwise set the initial score
+    }
+  });
 
+  // teams played away
+  finals.forEach((item) => {
+    if (stats.hasOwnProperty(item["Away Team Name"])) {
+      stats[item["Away Team Name"]] += item["Away Team Goals"];  // If the team has already played, increase the total score
+    } else {
+      stats[item["Away Team Name"]] = item["Away Team Goals"];   // otherwise set the initial score
+    }
+  });
+
+  const teams = Object.keys(stats);
+  const scores = Object.values(stats);
+  const topScores = Math.max(...scores);
+
+  const topIndex = scores.findIndex((element) => element == topScores);
+
+  console.log(`${teams[topIndex]} - ${topScores} goals. It's the best goal score per appearance in the World Cup finals.`);
 };
 
-getGoals();
+getGoals(fifaData);
 
 
 /* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
