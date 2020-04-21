@@ -18885,18 +18885,43 @@ function getGoals(data) {
   console.log(`${teams[topIndex]} - ${topScores} goals. It's the best goal score per appearance in the World Cup finals.`);
 };
 
-getGoals(fifaData);
+// getGoals(fifaData);
 
 
 /* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
-function badDefense(/* code here */) {
+function badDefense(data) {
+  const finals = getFinals(data);
+  const stats = {};
 
-    /* code here */
+  // teams played at home
+  finals.forEach((item) => {
+    if (stats.hasOwnProperty(item["Home Team Name"])) {
+      stats[item["Home Team Name"]] += item["Away Team Goals"];
+    } else {
+      stats[item["Home Team Name"]] = item["Away Team Goals"];
+    }
+  });
 
+  // teams played away
+  finals.forEach((item) => {
+    if (stats.hasOwnProperty(item["Away Team Name"])) {
+      stats[item["Away Team Name"]] += item["Home Team Goals"];
+    } else {
+      stats[item["Away Team Name"]] = item["Home Team Goals"];
+    }
+  });
+
+  const teams = Object.keys(stats);
+  const scores = Object.values(stats);
+  const topScores = Math.max(...scores);
+
+  const topIndex = scores.findIndex((element) => element == topScores);
+
+  console.log(`${teams[topIndex]} - ${topScores}. Most goals scored against them per appearance.`);
 };
 
-badDefense();
+badDefense(fifaData);
 
 
 /* Task 10: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
