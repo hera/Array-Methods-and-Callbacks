@@ -18730,6 +18730,7 @@ const fifaData = [
 
 // Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
+/*
 let result = fifaData.find((item) => {
   return item["Stage"] === "Final" && item["Year"] === 2014;
 });
@@ -18749,7 +18750,7 @@ console.log(result["Home Team Goals"]);
 // (d) Away Team goals for 2014 world cup final
 console.log(result["Away Team Goals"]);
 
-// (e) Winner of 2014 world cup final */
+// (e) Winner of 2014 world cup final
 
 if (result["Home Team Goals"] > result["Away Team Goals"]) {
   console.log(result["Home Team Name"]);
@@ -18758,15 +18759,15 @@ if (result["Home Team Goals"] > result["Away Team Goals"]) {
 } else {
   console.log("Tie");
 }
-
+*/
 
 // Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals(data) {
+  return data.filter((item) => item["Stage"] === "Final");
 };
+
+console.log(getFinals(fifaData));
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
